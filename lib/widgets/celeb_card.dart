@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CelebCard extends StatelessWidget {
+  final String name;
+  final String tagLine;
+  final String imageUrl;
+
+  const CelebCard({this.name, this.tagLine, this.imageUrl});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,16 +25,18 @@ class CelebCard extends StatelessWidget {
             height: 200,
             width: 200,
             fit: BoxFit.cover, //  In logical pixels by default
-            image: NetworkImage('https://pyxis.nymag.com/v1/imgs/4e5/1f7/a917c50e70a4c16bc35b9f0d8ce0352635-14-tom-cruise.rhorizontal.w700.jpg')
+            image: NetworkImage(imageUrl)
           ),
+          SizedBox(height: 20,),// Extra space
           Text(
-            'Tom Cruise',
+            name,
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Text('Performs the most number of stunts',
+          SizedBox(height: 5,),
+          Text(tagLine,
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w300,
